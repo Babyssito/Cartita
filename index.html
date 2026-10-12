@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff5f5">
+<title>Una carta para ti ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;min-height:100dvh;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ color:#532c3c;text-align:center;
+ background:radial-gradient(circle at top,#fff 0,#fff0f3 48%,#f8dce5 100%);
+ overflow-x:hidden
+}
+main{width:min(100% - 32px,440px);margin:auto;padding:48px 0 36px}
+.heart{font-size:54px;animation:latido 1.5s infinite}
+h1{font-family:Georgia,serif;font-size:clamp(32px,9vw,43px);margin:15px 0}
+p{line-height:1.7;font-size:16px;color:#795362}
+.card{
+ background:#ffffffc9;border:1px solid #ffffff;
+ border-radius:28px;padding:28px 22px;
+ box-shadow:0 15px 45px #8d40521a;
+ backdrop-filter:blur(12px)
+}
+button{
+ border:0;border-radius:50px;padding:15px 23px;
+ font-size:16px;font-weight:650;cursor:pointer;
+ -webkit-tap-highlight-color:transparent;
+ transition:transform .2s
+}
+button:active{transform:scale(.96)}
+.primary{background:#b52f58;color:white;box-shadow:0 6px 18px #b52f5830}
+.secondary{background:#f8e5eb;color:#8b3c58}
+.buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px}
+.screen{display:none;animation:entrar .55s ease both}
+.screen.active{display:block}
+.small{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#b05a76}
+.letter{text-align:left;white-space:pre-line;font-family:Georgia,serif;font-size:18px;line-height:1.9}
+.signature{font-family:Georgia,serif;font-style:italic;font-size:22px;color:#b52f58}
+footer{font-size:12px;color:#a27d89;margin-top:25px}
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.float{position:absolute;bottom:-30px;animation:subir 5s linear forwards}
+@keyframes latido{50%{transform:scale(1.13)}}
+@keyframes entrar{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes subir{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<main>
+  <div class="heart">💌</div>
+
+  <section class="screen active" id="s1">
+    <p class="small">Tengo algo para ti</p>
+    <h1>Un pequeño detalle...</h1>
+    <div class="card">
+      <p>Hay cosas que a veces cuesta decir en persona, así que hoy quise escribirlas para ti.</p>
+      <p>¿Me regalas un momentito de tu tiempo? ❤️</p>
+      <div class="buttons">
+        <button class="primary" onclick="go(2)">Abrir mi carta ✨</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s2">
+    <p class="small">Esto viene del corazón</p>
+    <h1>Quiero decirte algo</h1>
+    <div class="card">
+      <p>No sé en qué momento empezaste a convertirte en alguien tan especial para mí, pero me alegra mucho que hayas llegado a mi vida.</p>
+      <p>A veces, un mensaje tuyo puede mejorar mi día más de lo que imaginas.</p>
+      <p>Y aunque no siempre encuentre las palabras perfectas, quiero que sepas que lo que siento es sincero.</p>
+      <div class="buttons">
+        <button class="secondary" onclick="go(1)">Volver</button>
+        <button class="primary" onclick="go(3)">Hay algo más 💗</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s3">
+    <p class="small">Una última cosita</p>
+    <h1>¿Me dejas seguir conociéndote?</h1>
+    <div class="card">
+      <div style="font-size:42px">🌷</div>
+      <p>No quiero apresurar nada ni prometerte un cuento perfecto. Solo quiero tener la oportunidad de compartir momentos bonitos contigo, hacerte sonreír y demostrarte con hechos lo mucho que puedes llegar a importarme.</p>
+      <p>¿Te gustaría? ❤️</p>
+      <div class="buttons">
+        <button class="primary" onclick="go(4)">Sí, me gustaría 🥹</button>
+        <button class="secondary" onclick="go(5)">Quiero decirte algo</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s4">
+    <div class="card">
+      <div style="font-size:55px">💖</div>
+      <h1>Me hiciste sonreír</h1>
+      <p>Gracias por regalarme esta oportunidad. Quiero que lo bonito que venga sea sincero, tranquilo y de los dos.</p>
+      <p>Lo mejor todavía está por escribirse...</p>
+      <button class="primary" onclick="go(6)">Leer mi última carta 💌</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s5">
+    <div class="card">
+      <div style="font-size:48px">🤍</div>
+      <h1>Te escucho</h1>
+      <p>No tienes que sentir lo mismo ni responder lo que creas que quiero escuchar. Prefiero que seas sincera conmigo. Lo que sientes también importa.</p>
+      <button class="primary" onclick="go(6)">Terminar la carta 💌</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s6">
+    <p class="small">Para alguien especial</p>
+    <div class="card">
+      <div style="font-size:44px">❤️</div>
+      <h1>De mí para ti</h1>
+      <div class="letter" id="letter">Quería recordarte que eres una persona especial.
+
+No sé qué nos tenga preparado la vida, pero me gustaría descubrirlo poco a poco, sin prisas y con el corazón sincero.
+
+Gracias por existir, por ser tú y por inspirarme a hacer este pequeño detalle.
+
+Ojalá algún día pueda sacarte tantas sonrisas en persona como las que me imagino mientras escribo esto.</div>
+      <p class="signature">Con mucho cariño ❤️</p>
+      <button class="primary" onclick="celebrate()">Un último detalle ✨</button>
+      <p id="endmsg" hidden>Si estás sonriendo, mi misión está cumplida. 🌷</p>
+    </div>
+  </section>
+
+  <div class="buttons">
+    <button class="secondary" onclick="toggleMusic()" id="musicBtn">♫ Activar música</button>
+  </div>
+  <footer>Hecho con cariño, especialmente para ti ♡</footer>
+</main>
+
+<script>
+function go(n){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+ document.getElementById('s'+n).classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+ if(n===4||n===6) burst();
+}
+function burst(){
+ const box=document.getElementById('hearts');
+ for(let i=0;i<15;i++){
+  const e=document.createElement('span');
+  e.className='float';
+  e.textContent=['♥','♡','💕','✨'][Math.floor(Math.random()*4)];
+  e.style.left=Math.random()*100+'%';
+  e.style.fontSize=(16+Math.random()*22)+'px';
+  e.style.animationDuration=(3+Math.random()*3)+'s';
+  box.appendChild(e);
+  setTimeout(()=>e.remove(),6500);
+ }
+}
+function celebrate(){
+ burst();
+ document.getElementById('endmsg').hidden=false;
+}
+let ctx=null,osc=null,gain=null,music=false,timer=null;
+function toggleMusic(){
+ const btn=document.getElementById('musicBtn');
+ if(music){
+  clearInterval(timer);
+  if(osc){try{osc.stop()}catch(e){}}
+  if(ctx)ctx.close();
+  ctx=null;osc=null;music=false;
+  btn.textContent='♫ Activar música';
+  return;
+ }
+ try{
+  ctx=new (window.AudioContext||window.webkitAudioContext)();
+  gain=ctx.createGain();gain.gain.value=0.035;
+  gain.connect(ctx.destination);
+  const notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];
+  let i=0;
+  function note(){
+   if(!ctx)return;
+   if(osc){try{osc.stop()}catch(e){}}
+   osc=ctx.createOscillator();
+   osc.type='sine';osc.frequency.value=notes[i++%notes.length];
+   osc.connect(gain);osc.start();osc.stop(ctx.currentTime+0.32);
+  }
+  note();timer=setInterval(note,420);
+  music=true;btn.textContent='♫ Detener música';
+ }catch(e){btn.textContent='Música no disponible';}
+}
+</script>
+</body>
+</html>
